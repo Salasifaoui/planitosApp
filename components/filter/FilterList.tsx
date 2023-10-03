@@ -24,14 +24,7 @@ export interface FilterListProps {
     }
 
 export default function FilterList({ items, setItems }: FilterListProps) {
- 
 
-  const handleClearAll = () => {
-    const updateItems = items.map((item) => {
-      return { ...item, checked: false };
-    });
-    setItems(updateItems);
-  };
   const renderItem: ListRenderItem<Category> = ({ item, index }) => (
     <View style={styles.row}>
       <Text style={styles.itemText}>
@@ -62,13 +55,7 @@ export default function FilterList({ items, setItems }: FilterListProps) {
     </View>
   );
   return (
-    <>
-      <View style={styles.itemHeader}>
-        
-        <TouchableOpacity style={styles.buttonStyle} onPress={handleClearAll}>
-            <Text style={styles.buttonText}>Clear All</Text>
-        </TouchableOpacity>
-      </View>
+  
 
       <FlatList
         data={items}
@@ -77,7 +64,7 @@ export default function FilterList({ items, setItems }: FilterListProps) {
         ListHeaderComponent={<ItemBox />}
         showsHorizontalScrollIndicator
       />
-    </>
+
   );
 }
 

@@ -14,29 +14,56 @@ export default function RootLayoutNav() {
   const navigation = useNavigation();
   return (
     <BottomSheetModalProvider>
-    <Stack>
-      <Stack.Screen name="index" options={{
-        header: () => <CustomeHeader />,
-      }} />
-      <Stack.Screen name="(modal)/filter" 
-        options={{
-          presentation: "modal",
-          headerTitle: "Filter",
-          headerTitleAlign: "center",
-          headerShadowVisible: false,
-          headerStyle: {
-            backgroundColor: Colors.lightGrey,
-          },
-          headerLeft: () => 
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Ionicons name="close-outline" size={28} color={Colors.primary} />
-            </TouchableOpacity>
-          ,
-          
-          
-        }}
-      />
-    </Stack>
+      <Stack>
+        <Stack.Screen
+          name="index"
+          options={{
+            header: () => <CustomeHeader />,
+          }}
+        />
+        <Stack.Screen
+          name="(modal)/filter"
+          options={{
+            presentation: "modal",
+            headerTitle: "Filter",
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: Colors.lightGrey,
+            },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Ionicons
+                  name="close-outline"
+                  size={28}
+                  color={Colors.primary}
+                />
+              </TouchableOpacity>
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="(modal)/location-search"
+          options={{
+            presentation: "modal",
+            headerTitle: "Select Location",
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: Colors.lightGrey,
+            },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Ionicons
+                  name="close-outline"
+                  size={28}
+                  color={Colors.primary}
+                />
+              </TouchableOpacity>
+            ),
+          }}
+        />
+      </Stack>
     </BottomSheetModalProvider>
   );
 }
